@@ -52,6 +52,10 @@ module RuBB
           Node::Simple.new(:html_tag_name => 'pre')
         when 'ul', 'ol', 'li', 'table', 'tr', 'th', 'td'
           Node::Simple.new(:html_tag_name => current_tag_name)
+        when 'list'
+          Node::Simple.new(:html_tag_name => 'ol')
+        when '*'
+          Node::Simple.new(:html_tag_name => 'li')
         when 'size'
           Node::Styled.new(:html_tag_name => 'span', 
                            :style_hash => {'font-size' => (extra_params[:param] ? extra_params[:param].to_f.to_s + 'px' : nil)})
